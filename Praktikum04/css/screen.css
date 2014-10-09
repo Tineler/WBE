@@ -47,6 +47,10 @@ header img {
     border-top-right-radius: 9px;
 }
 
+a.menu {
+    display: none;
+}
+
 /* ----------------------------------- Navigation */
 nav {
     position: absolute;
@@ -94,6 +98,10 @@ nav ol li ol li {
 
 nav ol li:hover ol {
     display: block;
+}
+
+nav li.top {
+    display: none;
 }
 
 /* ----------------------------------- Haupttext */
@@ -188,6 +196,7 @@ footer.adresse {
     header img {
         width: 100%;
         border-radius: 0;
+        height: auto;
     }
 
     header h1 {
@@ -199,7 +208,18 @@ footer.adresse {
     }
 
     header h2 {
-        top: 70px;
+        top: 4em;
+    }
+
+    a.menu {
+        display: block;
+        position: absolute;
+        background: url('img/menu.jpg') no-repeat;
+        height: 40px;
+        width: 40px;
+        z-index: 100;
+        top: 1.2em;
+        left: 0.6em;
     }
 	
 	article {
@@ -208,18 +228,43 @@ footer.adresse {
 	}
 	
 	nav {
-		display: none;
+        position: static;
+        height: auto;
 	}
+
+    nav a {
+        width: auto;
+        padding: 1em 0 0.5em 1em;
+    }
+
+    nav ol {
+        margin-left: 0;
+        width: 100%;
+    }
 	
 	nav ol li {
 		float: none;
 		width: auto;
 	}
+
+    nav ol li ol {
+        display: block;
+    }
 	
 	nav ol li ol li {
 		float: none;
 		width: auto;
 	}
+
+    nav ol li ol li a {
+        width: auto;
+        padding: 1em 0 0.5em 2em;
+    }
+
+    nav li.top {
+        display: block;
+        background-color: #366789;
+    }
 	
 	aside {
 		position: relative; 
@@ -228,7 +273,7 @@ footer.adresse {
 		right: 0;
         width: 100%;
         background: none;
-        padding-bottom: 0;
+        padding-bottom: 1em;
 	}
 
     aside h1 {
@@ -244,4 +289,16 @@ footer.adresse {
         display: none;
 	}
 
+}
+
+@media all and (max-width: 400px) {
+    header h1 {
+        font-size: 20px;
+        padding-top: 28px;
+        height: 50px;
+    }
+
+    header h2 {
+        position: static;
+    }
 }
