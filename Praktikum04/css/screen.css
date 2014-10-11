@@ -197,6 +197,7 @@ footer.adresse {
         width: 100%;
         border-radius: 0;
         height: auto;
+        display: block;
     }
 
     header h1 {
