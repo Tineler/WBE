@@ -10,3 +10,7 @@ button.ui-btn-inline {
 .ui-block {
     padding-left: 1em;
 }
+
+label.select {
+    display: inline;
+}
