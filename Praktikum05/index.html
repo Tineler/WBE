@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script src="js/functions.js"></script>
+    <title>To Do List</title>
+</head>
+<body>
+    <div data-role="page" id="list" data-theme="a">
+        <div data-role="header">
+            <h1>To Do List</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div class="ui-grid-a">
+                <div class="ui-block ui-block-a"><input type="text" id="newtask" placeholder="What has to be done?"/></div>
+                <div class="ui-block ui-block-b"><button id="save-button" data-inline="true" data-icon="plus">Add</button></div>
+            </div>
+            <ul id="tasklist">
+            </ul>
+        </div>
+        <div data-role="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#list" data-icon="bullets" class="ui-btn-active ui-state-persist">List</a></li>
+                    <li><a href="#settings" data-icon="gear">Settings</a></li>
+                    <li><a href="#about" data-icon="info">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="settings" data-theme="a">
+        <div data-role="header">
+            <h1>Settings</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div data-role="fieldcontain">
+                <label for="select-theme" class="select">Select Theme:</label>
+                <select name="select-theme" id="select-theme" data-icon="eye" data-inline="true" data-native-menu="false">
+                    <option value="a">Light</option>
+                    <option value="b">Dark</option>
+                </select>
+            </div>
+        </div>
+        <div data-role="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#list" data-icon="bullets">List</a></li>
+                    <li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+                    <li><a href="#about" data-icon="info">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="about" data-theme="a">
+        <div data-role="header">
+            <h1>About</h1>
+        </div>
+        <div role="main" class="ui-content">
+            To-Do-List developed by Martin Haas and Sarah Umiker.
+        </div>
+        <div data-role="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#list" data-icon="bullets">List</a></li>
+                    <li><a href="#settings" data-icon="gear">Settings</a></li>
+                    <li><a href="#about" data-icon="info" class="ui-btn-active ui-state-persist">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

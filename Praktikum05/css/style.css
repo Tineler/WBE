@@ -1,0 +1,12 @@
+.ui-checkbox-on {
+    text-decoration: line-through !important;
+}
+
+button.ui-btn-inline {
+    margin-top: 0.5em;
+    padding-bottom: 0.25em;
+}
+
+.ui-block {
+    padding-left: 1em;
+}
