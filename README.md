@@ -7,3 +7,9 @@ http://rawgit.com/Tineler/WBE/master/Praktikum04/index.html
 
 ##Praktikum 05
 http://rawgit.com/Tineler/WBE/master/Praktikum05/index.html
+
+##Praktikum 06
+###1_tools###
+####Setup####
+1. Run "npm install" in the root directory.
+2. Run task "default" with Grunt.
