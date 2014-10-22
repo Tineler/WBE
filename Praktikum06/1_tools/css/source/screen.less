@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+@import "reset";
+
+@blue: rgb(63, 123, 155);
+@black: #000;
+@beige: #E8E9CB;
+@shadow: rgba(0, 0, 0, 0.9);
+@grey: #8F8E93;
+@white: #fff;
+
+@images: "/1_tools/css/img";
+
+/* ----------------------------------- Allgemeines und Seitenkopf */
+
+/* Regel für Seitenhintergrund, Schriftart */
+body {
+  @media all {
+    background-color: @blue;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (max-width: 770px) {
+    width: 100%;
+  }
+}
+
+body>div {
+  @media all {
+    width: 770px;
+    position: relative;
+    margin: 90px auto;
+    box-shadow: 7px 7px 14px 0 @shadow;
+    border-radius: 9px;
+  }
+  @media (max-width: 770px) {
+    width: 100%;
+    right: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+}
+
+/* Regel für zentrierten Bereich */
+header {
+  @media all {
+    h1 {
+      position: absolute;
+      right: 0;
+      top: 70px;
+      color: @blue;
+      background-color: @black;
+      padding-left: 60px;
+      padding-top: 20px;
+      font-size: 38px;
+      font-weight: bold;
+      width: 300px;
+      height: 60px;
+    }
+    h2 {
+      position: absolute;
+      background-color: @blue;
+      right: 10px;
+      top: 140px;
+      color: @beige;
+      padding: 5px;
+    }
+    img {
+      border-top-left-radius: 9px;
+      border-top-right-radius: 9px;
+    }
+  }
+  @media (max-width: 770px)
+  {
+    h1 {
+      position: relative;
+      top: 0;
+      width: 100%;
+      padding-left: 0;
+      text-align: center;
+    }
+    h2 {
+      top: 4em;
+    }
+    img {
+      width: 100%;
+      border-radius: 0;
+      height: auto;
+      display: block;
+    }
+  }
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 20px;
+      padding-top: 28px;
+      height: 50px;
+    }
+    h2 {
+      position: static;
+    }
+  }
+  @media (max-width: 240px) {
+    h1 {
+      padding-left: 20px;
+    }
+  }
+}
+
+a.menu {
+  @media all {
+    display: none;
+  }
+  @media (max-width: 770px) {
+    display: block;
+    position: absolute;
+    background: url('@{images}/menu.jpg') no-repeat;
+    height: 40px;
+    width: 40px;
+    z-index: 100;
+    top: 1.2em;
+    left: 0.6em;
+  }
+}
+
+/* ----------------------------------- Navigation */
+nav {
+  @media all {
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    top: 240px;
+    background-color: @grey;
+    ol {
+      width: 500px;
+      margin-left: 45px;
+      li {
+        float: left;
+        ol {
+          display: none;
+          background-color: @grey;
+          width: 100%;
+          margin: 0;
+          li {
+            float: none;
+          }
+        }
+      }
+      :hover ol {
+        display: block;
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      width: 100px;
+      height: 23px;
+      color: @beige;
+      padding: 12px 5px 5px;
+      &:hover {
+        background-color: @blue;
+      }
+    }
+
+    li.top {
+      display: none;
+    }
+  }
+  @media (max-width: 770px) {
+    position: static;
+    height: auto;
+    ol {
+      margin-left: 0;
+      width: 100%;
+      li {
+        float: none;
+        width: auto;
+        ol {
+          display: block;
+          li {
+            float: none;
+            width: auto;
+            a {
+              width: auto;
+              padding: 1em 0 0.5em 2em;
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      width: auto;
+      padding: 1em 0 0.5em 1em;
+    }
+
+    li.top {
+      display: block;
+      background-color: @blue;
+    }
+  }
+}
+
+/* ----------------------------------- Haupttext */
+
+/* Mehrere Regeln für die Darstellung des Haupttexts */
+article {
+  @media all {
+    background-color: @white;
+    text-align: justify;
+    padding: 50px 300px 50px 50px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    h1 {
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    footer {
+      margin-top: 2.5em;
+      h1 {
+        margin: 1em 0 0 0;
+      }
+    }
+  }
+  @media (max-width: 770px) {
+    padding: 1em 1em;
+    border-radius: 0;
+  }
+}
+
+/* ----------------------------------- Termin-Spalte */
+aside {
+  @media all {
+    position: absolute;
+    width: 220px;
+    top: 240px;
+    right: 50px;
+    padding-bottom: 165px;
+    background: @beige url('@{images}/angebote_hg.jpg') no-repeat bottom;
+    h1 {
+      height: 20px;
+      padding: 12px 0 8px 15px;
+      color: @beige;
+      background-color: @blue;
+    }
+
+    p {
+      padding-top: 10px;
+      padding-left: 10px;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 770px) {
+    position: relative;
+    float: none;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background: none;
+    padding-bottom: 1em;
+    h1 {
+      text-align: center;
+    }
+    p {
+      font-size: 1em;
+      color: @beige;
+    }
+  }
+}
+
+/* Regeln für die Absätze mit den Terminen */
+span.termin {
+  display: block;
+  font-weight: bold;
+}
+
+footer.adresse {
+  @media all {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
+    color: @beige;
+    text-align: right;
+  }
+  @media (max-width: 770px) {
+    display: none;
+  }
+}
