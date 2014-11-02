@@ -1,22 +1,24 @@
 /**
  * Created by Sarah on 29.10.2014.
  */
-(function ()	{
-    var	result	=	[];
+(function () {
+    var result = [];
     walkTheDom(document.body,
-        function	(el)	{
+        function (el) {
             result.push(el.nodeName);
         },
-        function(){}
+        function () {
+        }
     );
     console.log(result);
+    reallyNiceBlockquotes();
 })();
 
 
 function walkTheDom(start, elementFound, textFound) {
 
     if (start.hasChildNodes()) {
-        for (var i = 0; i< start.childNodes.length; i++) {
+        for (var i = 0; i < start.childNodes.length; i++) {
             var that = start.childNodes[i];
             if (that.nodeType == 3) {
                 textFound(that);
@@ -29,5 +31,24 @@ function walkTheDom(start, elementFound, textFound) {
                 }
             }
         }
+    }
+}
+
+function reallyNiceBlockquotes() {
+    var blockquotes = document.getElementsByTagName("blockquote");
+    for (var i = 0; i < blockquotes.length; i++) {
+        var blockquote = blockquotes[i];
+        var cite = blockquote.getAttribute("cite");
+
+        var p = document.createElement("p");
+        p.className = "attribution";
+
+        var a = document.createElement("a");
+        a.href = cite;
+        a.innerHTML = "source";
+
+        p.appendChild(a);
+
+        blockquote.appendChild(p);
     }
 }
