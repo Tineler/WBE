@@ -14,3 +14,6 @@ http://rawgit.com/Tineler/WBE/master/Praktikum05/index.html
 1. Run following command in the root directory (You need to have Node.js and npm installed)
 <pre>npm install</pre>
 2. Run task "default" with Grunt.
+
+##Praktikum 10
+http://rawgit.com/Tineler/WBE/master/Praktikum10/index.html
