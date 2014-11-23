@@ -28,7 +28,6 @@
                 val: oldValue.replace(/<br>/g, "\n")
             });
             $(this).replaceWith($input);
-            $input.next("a").remove();
             $input.focus();
 
             var $buttonCancel = $("<button>", {
