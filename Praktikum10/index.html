@@ -8,14 +8,46 @@
             .editable:hover {
                 background-color: lightgrey;
             }
+            textarea {
+                width: 100%;
+            }
+            .save {
+                display: block;
+                float: left;
+            }
+            a+p {
+                margin-top: 0;
+            }
         </style>
     </head>
     <body>
     <p class="editable">
         This is editable!
     </p>
+    <p class="editable">
+        This also!
+    </p>
     </body>
     <script>
-        $('.editable').editable();
+        $('.editable').editable({
+            save: function(el) {
+                var $link;
+
+                if ($(el).prev("a") != null) {
+                    $link = $("<a>", {
+                        text: "Download"
+                    });
+                    $(el).before($link);
+                }
+                var data = new Blob([$(el).val()], {type: 'text/plain'});
+
+                $link.attr("href", window.URL.createObjectURL(data));
+                var name = $(el).val().substr(0, 10);
+                if (name.length <= 0) {
+                    name = "empty";
+                }
+                $link.attr("download", name + ".txt");
+            }
+        });
     </script>
 </html>
