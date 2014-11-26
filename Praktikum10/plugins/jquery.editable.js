@@ -7,35 +7,36 @@
         }, options || {});
 
         var onBlur = function(element, value) {
-
             if (value == null) {
-                value = $(element).val().trim().replace(/\n/g,"<br>");
+                value = $(element).val().trim().replace(/\n/g,"<br>").replace(/ /g, "&nbsp;");
             }
-            var $p = $("<p>", {
-                class: "editable",
-                html: value
-            });
-            $(element).replaceWith($p);
-            while($p.next("button").length > 0) {
-                $p.next("button").remove();
+
+            if (!value) {
+                value = "&nbsp;";
             }
-            $p.on("click", switchToInput);
+            var parent = $(element).parent();
+            parent.empty();
+            parent.html(value);
+            parent.on("click", switchToInput);
         };
 
         var switchToInput = function() {
+            $(this).unbind("click");
             var oldValue = $(this).html().trim();
+            $(this).empty();
             var $input = $("<textarea>", {
-                val: oldValue.replace(/<br>/g, "\n")
+                val: oldValue.replace(/<br>/g, "\n").replace(/&nbsp;/g, " ")
             });
-            $(this).replaceWith($input);
+            $(this).append($input);
             $input.focus();
 
             var $buttonCancel = $("<button>", {
                 text: "Cancel",
                 class: "cancel"
             });
-            $input.after($buttonCancel);
-            $buttonCancel.click(function() {
+            $(this).append($buttonCancel);
+            $buttonCancel.click(function(event) {
+                event.stopPropagation();
                 onBlur($input[0], oldValue);
             });
 
@@ -43,8 +44,9 @@
                 text: "Save",
                 class: "save"
             });
-            $input.after($buttonSave);
-            $buttonSave.click(function() {
+            $(this).append($buttonSave);
+            $buttonSave.click(function(event) {
+                event.stopPropagation();
                 options.save($input[0]);
                 onBlur($input[0]);
             });

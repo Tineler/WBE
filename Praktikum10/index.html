@@ -33,14 +33,14 @@
             save: function(el) {
                 var $link;
 
-                if ($(el).prev("a").length <= 0) {
+                if ($(el).parent().prev("a").length <= 0) {
                     $link = $("<a>", {
                         text: "Download"
                     });
-                    $(el).before($link);
+                    $(el).parent().before($link);
                 }
                 else {
-                    $link = $(el).prev("a")
+                    $link = $(el).parent().prev("a")
                 }
                 var data = new Blob([$(el).val()], {type: 'text/plain'});
 
