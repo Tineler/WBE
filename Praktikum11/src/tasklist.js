@@ -31,4 +31,12 @@ TaskList.prototype.createTask = function(title) {
 //
 //  Render a TaskList
 //
-TaskList.prototype.render = function() { }
+TaskList.prototype.render = function() {
+    var $ul = $("<ul>");
+
+    $.each(this.tasks, function( index, task ) {
+        $ul.append(task.render());
+    });
+
+    return $ul;
+}
