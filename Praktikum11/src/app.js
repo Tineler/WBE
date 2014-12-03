@@ -12,7 +12,21 @@ $(function() {
 
 
     $('#taskList').on('change', ':checkbox', function() {
-	
+        var $that = $(this);
+        $(this).parent().slideUp("medium", function() {
+            if ($that.prop('checked')) {
+                $that.attr("checked", "checked");
+                $that.next().addClass('finished');
+                $that.parent().appendTo($('#taskList ul'));
+            }
+            else {
+                $that.removeAttr('checked');
+                $that.next().removeClass('finished');
+                $that.parent().prependTo($('#taskList ul'));
+            }
+            
+            $(this).slideDown("medium");
+        });
 	});
 
     $( document ).ready(function() {
