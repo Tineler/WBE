@@ -17,3 +17,7 @@ http://rawgit.com/Tineler/WBE/master/Praktikum05/index.html
 
 ##Praktikum 10
 http://rawgit.com/Tineler/WBE/master/Praktikum10/index.html
+
+##Praktikum 12
+Run using Node.js:
+<pre>node --harmony grep.js "[Search string]" [Path to file]</pre>
